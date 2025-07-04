@@ -44,7 +44,7 @@ export function MessageBubble({
   };
 
   return (
-    <div className={`group flex gap-4 ${isUser ? 'flex-row-reverse' : ''} mb-8 relative`}>
+    <div className={`group flex gap-4 mb-8 relative`}>
       <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
         isUser 
           ? 'bg-black text-white' 
@@ -61,7 +61,7 @@ export function MessageBubble({
         )}
       </div>
       
-      <div className={`flex-1 max-w-3xl ${isUser ? 'text-right' : ''}`}>
+      <div className={`flex-1 max-w-3xl`}>
         {isEditing ? (
           <div className="space-y-3">
             <textarea
@@ -69,9 +69,13 @@ export function MessageBubble({
               onChange={(e) => setEditContent(e.target.value)}
               onKeyDown={handleKeyDown}
               className="w-full p-3 border border-gray-300 rounded-2xl resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent min-h-[80px] text-sm md:text-base"
+              style={{
+                msOverflowStyle: 'none',
+                scrollbarWidth: 'none'
+              }}
               autoFocus
             />
-            <div className={`flex gap-2 ${isUser ? 'justify-end' : 'justify-start'}`}>
+            <div className={`flex gap-2 justify-start`}>
               <button
                 onClick={handleCancelEdit}
                 className="flex items-center gap-1 px-3 py-1.5 text-sm text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition-colors"
@@ -93,7 +97,7 @@ export function MessageBubble({
           <>
             <div className={`inline-block max-w-full ${
               isUser 
-                ? 'bg-black text-white px-4 py-3 rounded-2xl rounded-tr-md' 
+                ? 'bg-gray-100 px-4 py-3 rounded-2xl rounded-tl-md' 
                 : isError
                 ? 'bg-red-50 text-red-800 border border-red-200 px-4 py-3 rounded-2xl rounded-tl-md'
                 : 'bg-gray-50 text-gray-800 px-4 py-3 rounded-2xl rounded-tl-md border'
@@ -104,9 +108,7 @@ export function MessageBubble({
             </div>
             
             {/* Action buttons */}
-            <div className={`flex items-center gap-2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity ${
-              isUser ? 'justify-end' : 'justify-start'
-            }`}>
+            <div className={`flex items-center gap-2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity justify-start`}>
               {isUser && isLastUserMessage && onEditMessage && (
                 <button
                   onClick={() => setIsEditing(true)}
@@ -132,7 +134,7 @@ export function MessageBubble({
           </>
         )}
         
-        <div className={`text-xs text-gray-500 mt-2 ${isUser ? 'text-right' : 'text-left'}`}>
+        <div className={`text-xs text-gray-500 mt-2 text-left`}>
           {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
         </div>
       </div>
