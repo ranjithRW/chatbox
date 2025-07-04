@@ -44,6 +44,10 @@ export function ChatInput({ onSendMessage, isLoading }: ChatInputProps) {
               onKeyDown={handleKeyDown}
               placeholder="Message Gemini..."
               className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-2xl resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent max-h-32 min-h-[48px] text-sm md:text-base"
+              style={{
+                msOverflowStyle: 'none',
+                scrollbarWidth: 'none'
+              }}
               rows={1}
               disabled={isLoading}
             />

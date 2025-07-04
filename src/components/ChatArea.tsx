@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef} from 'react';
 import { MessageBubble } from './MessageBubble';
 import { ChatInput } from './ChatInput';
 import { MobileHeader } from './MobileHeader';
@@ -82,7 +82,7 @@ export function ChatArea({
               </div>
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold bg-black bg-clip-text text-transparent mb-4">
               Hello, I'm Gemini
             </h1>
             
